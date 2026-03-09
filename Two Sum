@@ -1,0 +1,15 @@
+# Algorithmic Challenges Successfully Solved on LeetCode #
+# This is the day i beagun my journey towards my carrer and this won't be the last #
+
+# The code for solving the 2 sum problem in the LeetCode might be the easyest for many but for me it's some what confusing not because of the problem it's because of using and adapting to the interface and usage of the LeetCode #
+
+# The following below is the code done by me for his question #
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[j] == target - nums[i]:
+                    return [i, j]
+
+        return []
