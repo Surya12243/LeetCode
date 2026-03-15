@@ -1,0 +1,21 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        # Edge case: no zigzag needed
+        if numRows == 1 or numRows >= len(s):
+            return s
+        
+        res = ""
+        
+        # Process each row
+        for r in range(numRows):
+            increment = 2 * (numRows - 1)
+            
+            for i in range(r, len(s), increment):
+                # Add character from main column
+                res += s[i]
+                
+                # Add character from diagonal (middle rows only)
+                if r > 0 and r < numRows - 1 and i + increment - 2 * r < len(s):
+                    res += s[i + increment - 2 * r]
+        
+        return res
