@@ -1,0 +1,32 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        i = 0          # ← Initialize HERE, before using it
+        sign = 1
+        result = 0
+        INT_MAX = 2**31 - 1
+        INT_MIN = -2**31
+        
+        # 1. Skip whitespace
+        while i < len(s) and s[i] == ' ':
+            i += 1
+        
+        # 2. Check sign
+        # ... rest of your code
+        if i < len(s) and (s[i] == '+' or s[i] == '-'):
+            sign = -1 if s[i] == '-' else 1
+            i += 1
+        while i < len(s) and s[i].isdigit():
+            digit = int(s[i])
+    # TODO: Check overflow BEFORE adding digit
+            result = result * 10 + digit
+            i += 1
+        result *= sign  # Apply the sign first
+# Then clamp between INT_MIN and INT_MAX
+        return max(INT_MIN, min(INT_MAX, result))
+        
+        # 1. Skip whitespace
+        # 2. Check sign
+        # 3. Parse digits
+        # 4. Apply clamping
+        
+        return result
